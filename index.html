@@ -29,7 +29,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             width: 90%;
-            max-width: 800px;
+            max-width: 750px;
             text-align: center;
         }
 
@@ -136,7 +136,7 @@
         <!-- 输入框和按钮 -->
         <form action="./" method="get" onsubmit="toSubmit(event)">
             <div class="input-area">
-                <input type="text" name="q" placeholder="输入 GitHub 文件链接" required
+                <input type="text" name="q" placeholder="输入 GitHub 文件链接,可不带https://前缀" required
                        pattern="^((https|http):\/\/)?(github\.com\/.+?\/.+?\/(?:releases|archive|blob|raw|suites)|((?:raw|gist)\.(?:githubusercontent|github)\.com))\/.+$">
             </div>
             <button type="submit" class="btn">下载</button>
