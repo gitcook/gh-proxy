@@ -20,6 +20,7 @@
             background: #f4f7fa;
             min-height: 100vh;
             color: #333;
+            margin: 0;
         }
 
         /* 主容器 */
@@ -31,6 +32,7 @@
             width: 90%;
             max-width: 700px;
             text-align: center;
+            overflow: hidden;
         }
 
         /* 标题和图标 */
@@ -39,6 +41,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .header img {
@@ -53,6 +56,8 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            word-wrap: break-word;
+            text-align: center;
         }
 
         /* 输入区域 */
@@ -123,6 +128,25 @@
         .info-section a:hover {
             text-decoration: underline;
         }
+
+        /* 响应式设计 */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+            }
+
+            .info-section {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -155,13 +179,9 @@
             <p><strong>Release 文件：</strong> https://github.com/hunshcn/project/releases/download/v0.1.0/example.zip</p>
             <p><strong>Release 源码：</strong> https://github.com/hunshcn/project/archive/v0.1.0.tar.gz</p>
             <p><strong>分支文件：</strong> https://github.com/hunshcn/project/blob/master/filename</p>
-            <p><strong>commit 文件：</strong> https://github.com/hunshcn/project/blob/1111111111111111111111111111/filename
-
-</p>
+            <p><strong>commit 文件：</strong> https://github.com/hunshcn/project/blob/1111111111111111111111111111/filename</p>
         </div>
-    <p style="position: sticky;top: calc(90% - 0.5em);">Powered by <a href="https://github.com/hunshcn/gh-proxy">gh-proxy</a>
-    </p>
+        <p style="position: sticky; top: calc(90% - 0.5em);">Powered by <a href="https://github.com/hunshcn/gh-proxy">gh-proxy</a></p>
     </div>
-
 </body>
 </html>
