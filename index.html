@@ -11,11 +11,9 @@
 
             // 动态生成内容
             const content = `
-                当前访问的域名是: ${hostname}<br>
-                根据域名，Git Clone 命令如下：<br>
-                git clone https://${hostname}/https://github.com/stilleshan/dockerfiles<br>
-                wget https://${hostname}/https://github.com/elunez/3DCEList/archive/refs/heads/master.zip<br>
-                curl -O https://${hostname}/https://github.com/elunez/3DCEList/archive/refs/heads/master.zip<br>
+                git clone <span class="highlight">https://${hostname}</span>/https://github.com/hunshcn/gh-proxy.git<br>
+                wget <span class="highlight">https://${hostname}</span>/https://github.com/hunshcn/gh-proxy/archive/refs/heads/master.zip<br>
+                curl -O <span class="highlight">https://${hostname}</span>/https://github.com/hunshcn/gh-proxy/archive/refs/heads/master.zip<br>
             `;
 
             // 将动态生成的内容插入到页面的 <p> 标签
@@ -146,6 +144,9 @@
         .info-section a:hover {
             text-decoration: underline;
         }
+        .highlight {
+            color: red; /* 设置文字颜色为红色 */
+        }
 
         /* 响应式设计 */
         @media (max-width: 600px) {
@@ -195,7 +196,7 @@
             <p>2. 支持终端命令行 git clone , wget , curl 等工具下载。</p>
             <p>3. 复制 GitHub 文件链接后，直接粘贴到输入框并点击“下载”。</p>
             <p>4. 不支持项目文件夹加速，也不支持 SSH Key 方式。</p>
-            <p>5. 更多信息，请参考 <a href="https://hunsh.net/archives/23/">详细文档</a>。</p>
+            <h3>示例：</h3>
             <p id="dynamicContent"></p>
             <h2>输入示例：</h2>
             <p><strong>分支源码：</strong> https://github.com/hunshcn/project/archive/master.zip</p>
