@@ -1,155 +1,159 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub 文件加速</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* 通用设置 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        html, body {
-            width: 100%;
-            height: 100%;
+
+        body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f0f4f8, #e2ebf1);
             display: flex;
             justify-content: center;
             align-items: center;
+            background: #f4f7fa;
+            min-height: 100vh;
             color: #333;
         }
 
+        /* 主容器 */
         .container {
-            width: 90%;
-            max-width: 500px;
+            background: #fff;
             padding: 2rem;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
             text-align: center;
-            transition: all 0.3s ease;
         }
-        
-        h1 {
-            font-size: 2rem;
-            background: linear-gradient(90deg, #00bfb3, #008b8b);
-            color: transparent;
-            background-clip: text;
-            -webkit-background-clip: text;
+
+        /* 标题和图标 */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 1.5rem;
         }
 
-        .input-container {
-            position: relative;
-            width: 100%;
-            margin-bottom: 1rem;
+        .header img {
+            width: 40px;
+            margin-right: 10px;
         }
 
-        .input-icon {
-            position: absolute;
-            top: 50%;
-            left: 0.8rem;
-            transform: translateY(-50%);
+        .header h1 {
+            font-size: 1.8rem;
             color: #00bfb3;
+            background: linear-gradient(90deg, #00bfb3, #008b8b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
-        .url {
+        /* 输入区域 */
+        .input-area {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .input-area input {
             width: 100%;
-            padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+            padding: 0.8rem;
+            padding-left: 1rem;
             font-size: 1rem;
-            border: 2px solid #ccc;
+            border: 2px solid #ddd;
             border-radius: 8px;
-            transition: border-color 0.3s, box-shadow 0.3s;
+            transition: border-color 0.3s ease;
         }
 
-        .url:focus {
+        .input-area input:focus {
             border-color: #00bfb3;
-            box-shadow: 0 0 8px rgba(0, 191, 179, 0.2);
             outline: none;
         }
 
         .btn {
+            display: inline-block;
             width: 100%;
             padding: 0.8rem;
             font-size: 1rem;
+            background: #00bfb3;
             color: #fff;
-            background: linear-gradient(45deg, #00bfb3, #008b8b);
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.2s ease, background 0.3s ease;
+            transition: background 0.3s ease;
+            margin-top: 0.5rem;
         }
 
         .btn:hover {
-            background: linear-gradient(45deg, #008b8b, #00bfb3);
-            transform: scale(1.05);
+            background: #008b8b;
         }
 
-        .info-text {
+        /* 使用说明 */
+        .info-section {
             text-align: left;
             font-size: 0.9rem;
-            color: #666;
-            margin-top: 1rem;
+            color: #555;
+            margin-top: 1.5rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
         }
 
-        .info-text p {
+        .info-section h2 {
+            font-size: 1rem;
             margin-bottom: 0.5rem;
+            color: #333;
         }
 
-        a {
+        .info-section p {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .info-section a {
             color: #3294ea;
             text-decoration: none;
         }
 
-        a:hover {
+        .info-section a:hover {
             text-decoration: underline;
         }
-
-        .example-text {
-            color: #7b7b7b;
-            margin-top: 1rem;
-            text-align: left;
-        }
-
-        .example-text p {
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-        }
     </style>
-    <script>
-        function toSubmit(e) {
-            e.preventDefault();
-            window.open(location.href.substr(0, location.href.lastIndexOf('/') + 1) + document.getElementsByName('q')[0].value);
-            return false;
-        }
-    </script>
 </head>
 <body>
     <div class="container">
-        <h1>GitHub 文件加速</h1>
+        <!-- 标题区 -->
+        <div class="header">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo">
+            <h1>GitHub 文件加速</h1>
+        </div>
+
+        <!-- 输入框和按钮 -->
         <form action="./" method="get" onsubmit="toSubmit(event)">
-            <div class="input-container">
-                <i class="fas fa-link input-icon"></i>
-                <input class="url" name="q" type="text" placeholder="输入 GitHub 文件链接" required
+            <div class="input-area">
+                <input type="text" name="q" placeholder="输入 GitHub 文件链接" required
                        pattern="^((https|http):\/\/)?(github\.com\/.+?\/.+?\/(?:releases|archive|blob|raw|suites)|((?:raw|gist)\.(?:githubusercontent|github)\.com))\/.+$">
             </div>
-            <button class="btn" type="submit">下载</button>
+            <button type="submit" class="btn">下载</button>
         </form>
-        <div class="info-text">
-            <p>提示：GitHub 文件链接可带或不带协议头，支持 release、archive 等文件链接，更多用法请参考 <a href="https://hunsh.net/archives/23/">这里</a>。</p>
-            <p>注意：不支持项目文件夹的加速。</p>
-        </div>
-        <div class="example-text">
-            <p><strong>示例链接：</strong></p>
-            <p>分支源码：<code>https://github.com/hunshcn/project/archive/master.zip</code></p>
-            <p>release源码：<code>https://github.com/hunshcn/project/archive/v0.1.0.tar.gz</code></p>
-            <p>release文件：<code>https://github.com/hunshcn/project/releases/download/v0.1.0/example.zip</code></p>
-            <p>分支文件：<code>https://github.com/hunshcn/project/blob/master/filename</code></p>
+
+        <!-- 使用说明 -->
+        <div class="info-section">
+            <h2>使用说明：</h2>
+            <p>1. 支持链接格式：release、archive、blob、raw 等文件链接。</p>
+            <p>2. 复制 GitHub 文件链接后，直接粘贴到输入框并点击“下载”。</p>
+            <p>3. 不支持项目文件夹加速，也不支持 SSH Key 方式。</p>
+            <p>4. 更多信息，请参考 <a href="https://hunsh.net/archives/23/">详细文档</a>。</p>
+            
+            <h2>输入示例：</h2>
+            <p><strong>分支源码：</strong> https://github.com/hunshcn/project/archive/master.zip</p>
+            <p><strong>Release 文件：</strong> https://github.com/hunshcn/project/releases/download/v0.1.0/example.zip</p>
+            <p><strong>分支文件：</strong> https://github.com/hunshcn/project/blob/master/filename</p>
         </div>
     </div>
 </body>
