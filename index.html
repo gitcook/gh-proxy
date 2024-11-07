@@ -11,9 +11,9 @@
 
             // 动态生成内容
             const content = `
-                git clone <span class="highlight">https://${hostname}</span>/https://github.com/hunshcn/gh-proxy.git<br><br>
-                wget <span class="highlight">https://${hostname}</span>/https://github.com/hunshcn/gh-proxy/archive/refs/heads/master.zip<br><br>
-                curl -O <span class="highlight">https://${hostname}</span>/https://github.com/hunshcn/gh-proxy/archive/refs/heads/master.zip<br><br>
+                <span class="line-spacing">git clone <span class="highlight">https://${hostname}</span>/https://github.com/hunshcn/gh-proxy.git</span>
+                <span class="line-spacing">wget <span class="highlight">https://${hostname}</span>/https://github.com/hunshcn/gh-proxy/archive/refs/heads/master.zip</span>
+                <span class="line-spacing">curl -O <span class="highlight">https://${hostname}</span>/https://github.com/hunshcn/gh-proxy/archive/refs/heads/master.zip</span>
             `;
 
             // 将动态生成的内容插入到页面的 <p> 标签
@@ -147,7 +147,10 @@
         .highlight {
             color: red; /* 设置文字颜色为红色 */
         }
-
+        .line-spacing {
+            display: block;       /* 使每一行独占一行 */
+            margin-bottom: 8px;    /* 设置行与行之间的间距 */
+        }
         /* 响应式设计 */
         @media (max-width: 600px) {
             .header h1 {
@@ -196,7 +199,6 @@
             <p>2. 支持终端命令行 git clone , wget , curl 等工具下载。</p>
             <p>3. 复制 GitHub 文件链接后，直接粘贴到输入框并点击“下载”。</p>
             <p>4. 不支持项目文件夹加速，也不支持 SSH Key 方式。</p>
-            <br>
             <p id="dynamicContent"></p>
             <h2>输入示例：</h2>
             <p><strong>分支源码：</strong> https://github.com/hunshcn/project/archive/master.zip</p>
